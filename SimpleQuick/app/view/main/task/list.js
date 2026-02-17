@@ -24,7 +24,7 @@ Ext.define('SimpleQuick.view.main.task.list', {
                     Ext.getBody().on('change', function(e, t, o) {
                      let id=t.getAttribute('data-id')
                      let title=document.getElementById(`title-${id}`)
-                     console.log(t)
+                    //  console.log(t)
                      if(t.checked){
                         title.style.textDecorationLine='line-through'
                         title.style.textDecorationColor='#4F4F4F'
@@ -91,6 +91,7 @@ Ext.define('SimpleQuick.view.main.task.list', {
                                 borderColor:'#2F80ED',
                             },
                             margin:8,
+                            padding:'8 8',
                             handler(obj){
                                 me.total_task++
                                 let task_panel=Ext.getCmp('container_list_task')
@@ -115,7 +116,7 @@ Ext.define('SimpleQuick.view.main.task.list', {
     dataMessage(){
         let me=this
         this.setLoading(true)
-        console.log('halo')
+        // console.log('halo')
         let data=[
             {
                 id_text :'task_1',
@@ -185,7 +186,7 @@ Ext.define('SimpleQuick.view.main.task.list', {
            <div id=${id_but} style="display:inline-block;float:right;"></div>
            <div id=date-${value.id_text} style="display:inline-block;color:#4F4F4F;font-size:12px;right:0;margin-top:4px;margin-right:4px;float:right;font-weight:500;">${(value.date==null)?'':value.date}</div>
             `,
-            cls:'colorPanel',
+            cls:'colorPanel expandPanel',
             collapsible: true,  // To allow collapse
             margin:'8 8 8 8',
             style:{
@@ -235,153 +236,6 @@ Ext.define('SimpleQuick.view.main.task.list', {
                                     }
                                    // html: '<img class="time" width="25" height="25" style="border-style:none;border:0px;border-color:#FFFFFF">'
                                 },
-                                {
-                                    xtype:'button',
-                                    margin:'49 0 0 8',
-                                    arrowVisible:false,
-                                    iconCls:'copy',
-                                    style:{
-                                        backgroundColor: '#FFFFFF',
-                                        'background-image': 'none',
-                                        borderColor:'#FFFFFF',
-                                        cursor:'auto',
-                                        borderRadius:'3px',
-                                    },
-                                    menu: {
-                                        minWidth:150,
-                                        items: [
-                                            {
-                                                xtype:"button",
-                                                text:'<span style="color: #4F4F4F;font-weight:550;justify-content:center;">Important ASAP</span>',
-                                                type:'important_asap',
-                                                style:{
-                                                    backgroundColor:"#E5F1FF",
-                                                    'background-image': 'none',
-                                                    borderRadius:'3px',
-                                                    borderColor:'#E5F1FF',
-
-                                                },
-                                                margin:8,
-                                                name:'Important ASAP',
-                                                handler(button){
-                                                    me.createListUrgent(button,value.id_text,"#E5F1FF")
-                                                }
-                                            },
-                                            {
-                                                text:'<span style="color: #4F4F4F;font-weight:550;justify-content:center;">Virtual Meeting</span>',
-                                                type:'virtual_meeting',
-                                                name:'Virtual Meeting',
-                                                style:{
-                                                    backgroundColor:"#F9E9C3",
-                                                    'background-image': 'none',
-                                                    borderRadius:'3px',
-                                                    borderColor:'#F9E9C3',
-
-                                                },
-                                                margin:8,
-                                                handler(button){
-                                                    me.createListUrgent(button,value.id_text,"#F9E9C3")
-                                                }
-                                            },
-                                            {
-                                                text:'<span style="color: #4F4F4F;font-weight:550;justify-content:center;">Offline Meeting</span>',
-                                                type:'offline_meeting',
-                                                style:{
-                                                    backgroundColor:"#FDCFA4",
-                                                    'background-image': 'none',
-                                                    borderRadius:'3px',
-                                                    borderColor:'#FDCFA4',
-
-                                                },
-                                                margin:8,
-                                                name:'Offline Meeting',
-                                                handler(button){
-                                                    me.createListUrgent(button,value.id_text,"#FDCFA4")
-                                                }
-                                            },
-                                            {
-                                                text:'<span style="color: #4F4F4F;font-weight:550;justify-content:center;">ASAP</span>',
-                                                type:'asap',
-                                                style:{
-                                                    backgroundColor:"#AFEBDB",
-                                                    'background-image': 'none',
-                                                    borderRadius:'3px',
-                                                    borderColor:'#AFEBDB',
-
-                                                },
-                                                margin:8,
-                                                name:'ASAP',
-                                                handler(button){
-                                                    me.createListUrgent(button,value.id_text,"#AFEBDB")
-                                                }
-                                            },
-                                            {
-                                                text:'<span style="color: #4F4F4F;font-weight:550;justify-content:center;">Client Related</span>',
-                                                type:'client_related',
-                                                style:{
-                                                    backgroundColor:"#CBF1C2",
-                                                    'background-image': 'none',
-                                                    borderColor:'#CBF1C2',
-                                                    borderRadius:'3px',
-
-                                                },
-                                                margin:8,
-                                                name:'Client Related',
-                                                handler(button){
-                                                    me.createListUrgent(button,value.id_text,"#CBF1C2")
-                                                }
-                                            },
-                                            {
-                                                text:'<span style="color: #4F4F4F;font-weight:550;justify-content:center;">Self Task</span>',
-                                                type:'self_task',
-                                                style:{
-                                                    backgroundColor:"#CFCEF9",
-                                                    'background-image': 'none',
-                                                    borderColor:'#CFCEF9',
-                                                    borderRadius:'3px',
-                                                },
-                                                margin:8,
-                                                name:'Self Task',
-                                                handler(button){
-                                                    me.createListUrgent(button,value.id_text,"#CFCEF9")
-                                                }
-                                            },
-                                            {
-                                                text:'<span style="color: #4F4F4F;font-weight:550;justify-content:center;">Appointments</span>',
-                                                type:'appointment',
-                                                style:{
-                                                    backgroundColor:"#F9E0FD",
-                                                    'background-image': 'none',
-                                                    borderColor:'#F9E0FD',
-                                                    borderRadius:'3px',
-                                                },
-                                                margin:8,
-                                                name:'Appointments',
-                                                handler(button){
-                                                    me.createListUrgent(button,value.id_text,"#F9E0FD")
-                                                }
-                                            },
-                                            {
-                                                text:'<span style="color: #4F4F4F;font-weight:550;justify-content:center;">Court Related</span>',
-                                                type:'court_related',
-                                                style:{
-                                                    backgroundColor:"#9DD0ED",
-                                                    'background-image': 'none',
-                                                    borderColor:'#9DD0ED',
-                                                    borderRadius:'3px',
-
-                                                },
-                                                margin:8,
-                                                name:'Court Related',
-                                                handler(button){
-                                                    me.createListUrgent(button,value.id_text,"#9DD0ED")
-                                                }
-                                            },
-                                        ]
-                                    }
-                                  
-                                   // html: '<img class="time" width="25" height="25" style="border-style:none;border:0px;border-color:#FFFFFF">'
-                                },
 
                             ]
                         },
@@ -410,7 +264,7 @@ Ext.define('SimpleQuick.view.main.task.list', {
                                                     var nextweek = new Date(date[2], date[1]-1, date[0]);
                                                     return nextweek;
                                                 }
-                                                console.log(nextweek())
+                                                // console.log(nextweek())
                                                 obj.setValue(nextweek());
                                             }
                                            
@@ -449,20 +303,170 @@ Ext.define('SimpleQuick.view.main.task.list', {
                                         }
                                     }
                                 },
-                                {
-                                    xtype:'container',
-                                    itemId:`list_urgent-${value.id_text}`,
-                                    width:'90%',
-                                    bodyStyle:{
-                                        background:'#F9F9F9!important'
-                                    },
-                                    autoScroll:true,
-                                    layout:{
-                                        type:'hbox'
-                                    },
-                                }
 
                             ]
+                        }
+                    ]
+               },
+               {
+                    xtype:'container',
+                    width:'100%',
+                    margin:'0 0 8 0',
+                    layout:{
+                        type:'hbox',
+                    },
+                    style:{
+                        background:'#f9f9f9a3!important',
+                        borderRadius:'6px',
+                    },
+                    items:[
+                        {
+                            xtype:'button',
+                            margin:'4 0 4 8',
+                            arrowVisible:false,
+                            iconCls:'copy',
+                            style:{
+                                backgroundColor: '#FFFFFF',
+                                'background-image': 'none',
+                                borderColor:'#FFFFFF',
+                                cursor:'auto',
+                                borderRadius:'3px',
+                            },
+                            menu: {
+                                minWidth:150,
+                                items: [
+                                    {
+                                        xtype:"button",
+                                        text:'<span style="color: #4F4F4F;font-weight:550;justify-content:center;">Important ASAP</span>',
+                                        type:'important_asap',
+                                        style:{
+                                            backgroundColor:"#E5F1FF",
+                                            'background-image': 'none',
+                                            borderRadius:'3px',
+                                            borderColor:'#E5F1FF',
+                                        },
+                                        margin:8,
+                                        name:'Important ASAP',
+                                        handler(button){
+                                            me.createListUrgent(button,value.id_text,"#E5F1FF")
+                                        }
+                                    },
+                                    {
+                                        text:'<span style="color: #4F4F4F;font-weight:550;justify-content:center;">Virtual Meeting</span>',
+                                        type:'virtual_meeting',
+                                        name:'Virtual Meeting',
+                                        style:{
+                                            backgroundColor:"#F9E9C3",
+                                            'background-image': 'none',
+                                            borderRadius:'3px',
+                                            borderColor:'#F9E9C3',
+                                        },
+                                        margin:8,
+                                        handler(button){
+                                            me.createListUrgent(button,value.id_text,"#F9E9C3")
+                                        }
+                                    },
+                                    {
+                                        text:'<span style="color: #4F4F4F;font-weight:550;justify-content:center;">Offline Meeting</span>',
+                                        type:'offline_meeting',
+                                        style:{
+                                            backgroundColor:"#FDCFA4",
+                                            'background-image': 'none',
+                                            borderRadius:'3px',
+                                            borderColor:'#FDCFA4',
+                                        },
+                                        margin:8,
+                                        name:'Offline Meeting',
+                                        handler(button){
+                                            me.createListUrgent(button,value.id_text,"#FDCFA4")
+                                        }
+                                    },
+                                    {
+                                        text:'<span style="color: #4F4F4F;font-weight:550;justify-content:center;">ASAP</span>',
+                                        type:'asap',
+                                        style:{
+                                            backgroundColor:"#AFEBDB",
+                                            'background-image': 'none',
+                                            borderRadius:'3px',
+                                            borderColor:'#AFEBDB',
+                                        },
+                                        margin:8,
+                                        name:'ASAP',
+                                        handler(button){
+                                            me.createListUrgent(button,value.id_text,"#AFEBDB")
+                                        }
+                                    },
+                                    {
+                                        text:'<span style="color: #4F4F4F;font-weight:550;justify-content:center;">Client Related</span>',
+                                        type:'client_related',
+                                        style:{
+                                            backgroundColor:"#CBF1C2",
+                                            'background-image': 'none',
+                                            borderColor:'#CBF1C2',
+                                            borderRadius:'3px',
+                                        },
+                                        margin:8,
+                                        name:'Client Related',
+                                        handler(button){
+                                            me.createListUrgent(button,value.id_text,"#CBF1C2")
+                                        }
+                                    },
+                                    {
+                                        text:'<span style="color: #4F4F4F;font-weight:550;justify-content:center;">Self Task</span>',
+                                        type:'self_task',
+                                        style:{
+                                            backgroundColor:"#CFCEF9",
+                                            'background-image': 'none',
+                                            borderColor:'#CFCEF9',
+                                            borderRadius:'3px',
+                                        },
+                                        margin:8,
+                                        name:'Self Task',
+                                        handler(button){
+                                            me.createListUrgent(button,value.id_text,"#CFCEF9")
+                                        }
+                                    },
+                                    {
+                                        text:'<span style="color: #4F4F4F;font-weight:550;justify-content:center;">Appointments</span>',
+                                        type:'appointment',
+                                        style:{
+                                            backgroundColor:"#F9E0FD",
+                                            'background-image': 'none',
+                                            borderColor:'#F9E0FD',
+                                            borderRadius:'3px',
+                                        },
+                                        margin:8,
+                                        name:'Appointments',
+                                        handler(button){
+                                            me.createListUrgent(button,value.id_text,"#F9E0FD")
+                                        }
+                                    },
+                                    {
+                                        text:'<span style="color: #4F4F4F;font-weight:550;justify-content:center;">Court Related</span>',
+                                        type:'court_related',
+                                        style:{
+                                            backgroundColor:"#9DD0ED",
+                                            'background-image': 'none',
+                                            borderColor:'#9DD0ED',
+                                            borderRadius:'3px',
+                                        },
+                                        margin:8,
+                                        name:'Court Related',
+                                        handler(button){
+                                            me.createListUrgent(button,value.id_text,"#9DD0ED")
+                                        }
+                                    },
+                                ]
+                            }
+                        },
+                        {
+                            xtype:'container',
+                            itemId:`list_urgent-${value.id_text}`,
+                            flex:1,
+                            autoScroll:true,
+                            layout:{
+                                type:'hbox'
+                            },
                         }
                     ]
                }
@@ -524,7 +528,7 @@ Ext.define('SimpleQuick.view.main.task.list', {
     createListUrgent(data,idcontainer,color){
         let me=this,
             same=false;
-        console.log(data.type)
+        // console.log(data.type)
         if(me.list_urgent!=0)
         {
             me.list_urgent.map((value)=>{
@@ -534,11 +538,12 @@ Ext.define('SimpleQuick.view.main.task.list', {
             })
         }
    
-        console.log(me.list_urgent)
+        // console.log(me.list_urgent)
         let button=Ext.create('Ext.button.Button',{
             iconCls:'close',
             margin:'2 0 0 2',
             height:15,
+            hidden:true,
             itemId:`button-${data.type}-${idcontainer}`,
             style:{
                 backgroundColor: color,
@@ -551,16 +556,17 @@ Ext.define('SimpleQuick.view.main.task.list', {
                     return arr.filter(f => f !== item)
                 }
                 me.list_urgent = removeItem( me.list_urgent,`${data.type}-${idcontainer}`);
-                console.log(me.list_urgent)
+                // console.log(me.list_urgent)
                 button.hide();
-                Ext.ComponentQuery.query(`#containurgent-${data.type}-${idcontainer}`)[0].hide()
+                Ext.ComponentQuery.query(`#containurgent-${data.type}-${idcontainer}`)[0].show()
 
             }
         })
         if(same==false){
             me.list_urgent.push(`${data.type}-${idcontainer}`)
             let container=Ext.create('Ext.container.Container',{
-                margin:'8 8 8 4',
+                margin:'4 8 4 4',
+                padding:'0 6',
                 height:22,
                 itemId:`containurgent-${data.type}-${idcontainer}`,
                 layout:{

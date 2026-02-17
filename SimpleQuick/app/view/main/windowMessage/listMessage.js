@@ -86,7 +86,7 @@ Ext.define('SimpleQuick.view.main.windowMessage.listMessage', {
     dataMessage(){
         let me=this
         this.setLoading(true)
-        console.log('halo')
+        // console.log('halo')
         let data=[
             {
                 title   :'Naturalization',
@@ -173,7 +173,7 @@ Ext.define('SimpleQuick.view.main.windowMessage.listMessage', {
             ],
             listeners:{
                 click(){
-                    console.log("obj")
+                    // console.log("obj")
                 },
                 afterrender: function(el, layout, eOpts){
                     //console.log(el.down('container'));
@@ -193,7 +193,7 @@ Ext.define('SimpleQuick.view.main.windowMessage.listMessage', {
                             height:500,
                         });
                         me.close()
-                        console.log('tekan')
+                        // console.log('tekan')
                         createView.show()
                     });
                     // $( "#" + el.id ).click(function() {

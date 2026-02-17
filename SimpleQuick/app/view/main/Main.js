@@ -80,7 +80,7 @@ Ext.define('SimpleQuick.view.main.Main', {
                                     
                                     }
                                 });
-                                console.log('tekan')
+                                // console.log('tekan')
                                 button.setStyle({
                                     background: '#8785FF',  // Background color
                                     borderColor: '#8785FF',  // Border color
@@ -89,13 +89,13 @@ Ext.define('SimpleQuick.view.main.Main', {
                                 createView.show()
                             }
                             else{
-                                console.log('lepas')
+                                // console.log('lepas')
                                 button.setStyle({
                                     background: '#FFF',  // Background color
                                     borderColor: '#FFF',  // Border color
                                 });
                                 button.setIconCls('messageMain')
-                                console.log(Ext.ComponentQuery.query('#taskdata')[0])
+                                // console.log(Ext.ComponentQuery.query('#taskdata')[0])
                                Ext.ComponentQuery.query('#taskdata')[0].destroy()
                             }
                         }

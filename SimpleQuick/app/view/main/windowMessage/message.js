@@ -35,7 +35,7 @@ Ext.define('SimpleQuick.view.main.windowMessage.message', {
                                 closable:true,
                             });
                             me.close()
-                            console.log('tekan')
+                            // console.log('tekan')
                             createView.show()
                         }
                     }
@@ -111,8 +111,8 @@ Ext.define('SimpleQuick.view.main.windowMessage.message', {
                             if(message.getValue()==''){
                                 return false
                             }
-                            console.log(date)
-                            console.log(me.convertDate(date))
+                            // console.log(date)
+                            // console.log(me.convertDate(date))
                             me.total_message++;
                             let data=[{
                                 id          : `message_${me.total_message}`,
@@ -121,7 +121,7 @@ Ext.define('SimpleQuick.view.main.windowMessage.message', {
                                 message     : message.getValue(),
                                 time        : `${new Date().getHours()}.${new Date().getMinutes()}`,
                             }]
-                            console.log(data)
+                            // console.log(data)
                             me.container_parent.add(me.createPanel(data[0]))
                             message.setValue(null)
                             me.panelMessage.add(me.container_parent)
@@ -172,8 +172,8 @@ Ext.define('SimpleQuick.view.main.windowMessage.message', {
                         if(message.getValue()==''){
                             return false
                         }
-                        console.log(date)
-                        console.log(me.convertDate(date))
+                        // console.log(date)
+                        // console.log(me.convertDate(date))
                         me.total_message++;
                         let data=[{
                             id          : `message_${me.total_message}`,
@@ -182,7 +182,7 @@ Ext.define('SimpleQuick.view.main.windowMessage.message', {
                             message     : message.getValue(),
                             time        : `${new Date().getHours()}.${new Date().getMinutes()}`,
                         }]
-                        console.log(data)
+                        // console.log(data)
                         me.container_parent.add(me.createPanel(data[0]))
                         message.setValue(null)
                         me.panelMessage.add(me.container_parent)
@@ -202,7 +202,7 @@ Ext.define('SimpleQuick.view.main.windowMessage.message', {
     dataMessage(){
         let me=this
         this.setLoading(true)
-        console.log('halo')
+        // console.log('halo')
         let data=[
             {
                 id            : 'message_1', 
@@ -309,7 +309,7 @@ Ext.define('SimpleQuick.view.main.windowMessage.message', {
                                         {
                                             text:'<span style="color: #EB5757;font-weight:500;margin-left:-22px;">Delete</span>',
                                             handler(button){
-                                                console.log(value.id)
+                                                // console.log(value.id)
                                                 Ext.getCmp(value.id).removeAll()
                                             }
                                         },

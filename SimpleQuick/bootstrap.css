@@ -135,7 +135,30 @@
     position: absolute;
     top: 50%;
     right: 0;
-  }
+}
+.expandPanel .x-panel-header-default .x-tool-img
+{
+    background-color: #fff!important;
+}
+.expandPanel .x-tool-expand-top, .x-tool-collapse-top{
+    background-position: 0 5.5px!important;
+    background-image: url("icon/expand_more_24px.svg");
+}
+.expandPanel .x-tool-expand-bottom, .x-tool-collapse-bottom{
+    background-position: 0 5px!important;
+    background-image: url("icon/expand_close.svg");
+
+    
+}
+.expandPanel .x-tool-img {
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    background-repeat: no-repeat;
+    filter: alpha(opacity=50);
+    opacity: .5;
+}
 .copy{
     background-image: url("icon/bookmark.png");
     background-size: 15px; background-repeat: no-repeat; background-position: top 0px center;

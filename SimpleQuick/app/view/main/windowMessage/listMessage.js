@@ -14,7 +14,7 @@ Ext.define('SimpleQuick.view.main.windowMessage.listMessage', {
         Ext.apply(this, {
             layout: 'fit',
             header:false,
-            cls:'windowUI',
+            cls:'windowUI closeBtn',
             items: [
                 this.createList()
             ],

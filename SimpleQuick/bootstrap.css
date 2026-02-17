@@ -36,7 +36,7 @@
 .x-window-default{
     border-color: #FFFFFF!important;
 }
-.x-tool-img {
+.closeBtn .x-tool-img {
     overflow: hidden;
     width: 16px;
     height: 16px;

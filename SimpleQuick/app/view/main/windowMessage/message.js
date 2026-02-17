@@ -7,7 +7,7 @@ Ext.define('SimpleQuick.view.main.windowMessage.message', {
         let me=this;
         Ext.apply(this, {
             layout: 'fit',
-            cls:'headerWin',
+            cls:'headerWin closeBtn',
             items: [
                 this.createList()
             ],

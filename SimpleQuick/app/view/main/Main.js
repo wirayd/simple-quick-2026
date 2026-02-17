@@ -11,7 +11,8 @@ Ext.define('SimpleQuick.view.main.Main', {
         'SimpleQuick.view.main.MainController',
         'SimpleQuick.view.main.MainModel',
         'SimpleQuick.view.main.windowMessage.listMessage',
-        'SimpleQuick.view.main.windowMessage.message'
+        'SimpleQuick.view.main.windowMessage.message',
+        'SimpleQuick.view.main.task.list'
     ],
 
     xtype: 'app-main',

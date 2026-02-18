@@ -181,6 +181,7 @@ Ext.define('SimpleQuick.view.main.Main', {
                     height:40,
                     iconCls:'cloud',
                     width:40,
+                    hidden:true,
                     style:{
                         backgroundColor: '#2F80ED',
                         'background-image': 'none',
